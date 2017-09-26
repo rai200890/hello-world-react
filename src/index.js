@@ -1,9 +1,9 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import HelloWorld from "./components/hello-world"
 
+import UserList from "./components/user"
 
 ReactDOM.render(
-    (<HelloWorld id="angular" data-framework-name="Angular.js"/>),
+    <UserList data-url="http://localhost:5000/users"/>,
     document.getElementById("content")
 )
