@@ -1,12 +1,26 @@
-var LiveReloadPlugin = require("webpack-livereload-plugin")
-var options = {port: 3000}
+var path = require("path")
+
 module.exports = {
-  plugins: [
-    new LiveReloadPlugin(options)
-  ],
-  module: {
-    rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
-    ]
-  }
+    entry: "./src/index.js",
+    output: {
+        publicPath: "/",
+        path: path.resolve(__dirname, "dist"),
+        filename: "bundle.js"
+    },
+    devServer: {
+        inline: true,
+        port: 3000
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: "babel-loader",
+                query: {
+                    presets: ["react"]
+                }
+            }
+        ]
+    }
 }
