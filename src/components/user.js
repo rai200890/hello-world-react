@@ -10,8 +10,11 @@ const UserItem = (props) => {
 }
 
 const UserTable = (props) => {
+    let style = {
+        opacity: props.visible ? 1 : 0
+    }
     return (
-        <table>
+        <table style={style}>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -30,11 +33,15 @@ class UserList extends React.Component{
 
     constructor(props){
         super(props)
-        this.state = {"users": []}
+        this.state = {"users": [], "visible": true}
     }
 
     componentDidMount(){
-        setInterval(() => this.fetchUsers(), 1000)
+        setInterval(() => this.fetchUsers(), 2000)
+    }
+
+    shouldComponentUpdate(newProps, newState) {
+        return newState.visible
     }
 
     fetchUsers(){
@@ -44,7 +51,7 @@ class UserList extends React.Component{
     }
 
     render(){
-        return (<UserTable users={this.state.users}/>
+        return (<UserTable users={this.state.users} visible={this.state.visible}/>
         )
     }
 

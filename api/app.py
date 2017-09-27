@@ -8,7 +8,7 @@ app = Flask(__name__)
 cors = CORS(app)
 
 
-@app.route("/users")
+@app.route("/users", methods=("GET",))
 def users():
     fake = Faker("pt_BR")
     response = [{"name": fake.name(),

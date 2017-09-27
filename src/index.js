@@ -1,9 +1,14 @@
 import React from "react"
 import ReactDOM from "react-dom"
+//import UserList from "./components/user"
+import StatefulButton from "./components/button"
 
-import UserList from "./components/user"
+// ReactDOM.render(
+//     <UserList data-url="http://localhost:5000/users"/>,
+//     document.getElementById("content")
+// )
 
 ReactDOM.render(
-    <UserList data-url="http://localhost:5000/users"/>,
-    document.getElementById("content")
+    <StatefulButton name="Botão"/>,
+    document.getElementById("button")
 )
